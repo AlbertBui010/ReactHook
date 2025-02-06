@@ -12,15 +12,34 @@ class App extends React.Component {
 		age: '21',
 	};
 
-	handleClickMe(event) {
-		console.log(event.target);
-	}
+	handleClickMe = (event) => {
+		this.setState({
+			name: 'Albert Bui',
+		});
+	};
+
+	handleOnChangeInput = (event) => {
+		this.setState({
+			name: event.target.value,
+		});
+	};
+
+	handleOnSubmit = (event) => {
+		event.preventDefault();
+		console.log(this.state);
+	};
 
 	render() {
 		return (
 			<>
 				this is web page {this.state.name}
-				<button onClick={this.handleClickMe}>Click me</button>
+				<button onClick={(event) => this.handleClickMe(event)}>Click me</button>
+				<div>
+					<form onSubmit={(event) => this.handleOnSubmit(event)}>
+						<input onChange={(event) => this.handleOnChangeInput(event)} type="text" />
+						<button>Submit</button>
+					</form>
+				</div>
 			</>
 		);
 	}
