@@ -4,41 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import MyComponent from './components/MyComponent';
 import React from 'react';
+import UserInfo from './components/UserInfo';
+import DisplayInfo from './components/DisplayInfo';
 
 class App extends React.Component {
-	state = {
-		name: 'Bui Quang Quy',
-		address: 'HCMC',
-		age: '21',
-	};
-
-	handleClickMe = (event) => {
-		this.setState({
-			name: 'Albert Bui',
-		});
-	};
-
-	handleOnChangeInput = (event) => {
-		this.setState({
-			name: event.target.value,
-		});
-	};
-
-	handleOnSubmit = (event) => {
-		event.preventDefault();
-		console.log(this.state);
-	};
-
 	render() {
 		return (
 			<>
-				this is web page {this.state.name}
-				<button onClick={(event) => this.handleClickMe(event)}>Click me</button>
 				<div>
-					<form onSubmit={(event) => this.handleOnSubmit(event)}>
-						<input onChange={(event) => this.handleOnChangeInput(event)} type="text" />
-						<button>Submit</button>
-					</form>
+					<UserInfo />
+				</div>
+				<div style={{ marginTop: '24px' }}>
+					<DisplayInfo name="Albert Bui" age="20" />
 				</div>
 			</>
 		);
