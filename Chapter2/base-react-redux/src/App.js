@@ -1,11 +1,8 @@
 import './App.scss';
+import Header from './components/Header';
 
 const App = () => {
-	return (
-		<div className="app-container">
-			<button className="btn btn-primary">Hello World</button>
-		</div>
-	);
+	return <Header />;
 };
 
 export default App;

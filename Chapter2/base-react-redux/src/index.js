@@ -5,17 +5,22 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
-// Import to use boostraps
+// Import to use bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import to use sass
 import './App.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<Provider store={store}>
 		<React.StrictMode>
-			<App />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<App />} />
+				</Routes>
+			</BrowserRouter>
 		</React.StrictMode>
 	</Provider>,
 );
