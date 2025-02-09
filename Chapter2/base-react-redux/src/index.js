@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Import to use sass
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Admin from './components/admin/Admin';
+import Users from './components/user/User';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +20,10 @@ root.render(
 		<React.StrictMode>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<App />} />
+					<Route path="/" element={<App />}>
+						<Route path="/admin" element={<Admin />} />
+						<Route path="/users" element={<Users />} />
+					</Route>
 				</Routes>
 			</BrowserRouter>
 		</React.StrictMode>
